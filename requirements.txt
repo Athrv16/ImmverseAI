@@ -1,0 +1,6 @@
+Pillow>=10.0
+numpy>=1.26
+fonttools>=4.50
+# Optional, only needed for --upload:
+# datasets>=3.0
+# huggingface_hub>=0.26

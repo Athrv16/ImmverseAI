@@ -97,19 +97,21 @@ python -m pip install -r requirements-hub.txt
 hf auth login
 ```
 
-Then create a dataset repository and upload all three configurations:
+Use the standalone uploader to verify and upload the already-generated dataset:
 
 ```sh
-python generate.py --upload --repo-id YOUR_USERNAME/synthetic-manuscripts
+python scripts/upload_to_huggingface.py --help
+python scripts/upload_to_huggingface.py
 ```
 
-The upload creates a private repository with configurations named `devanagari`, `modi`, and `sharada`; each configuration contains `train`, `validation`, and `test` splits. Grant the hiring team access through Hugging Face. Never put the token in the code or repository.
+After `hf auth login`, it uses the authenticated username to create or use the assignment's dataset repository. It verifies exactly 300 PNGs and 300 matching Markdown annotations, then uploads the `devanagari`, `modi`, and `sharada` configurations, each with `train`, `validation`, and `test` splits. It makes the repository public after all three configurations upload successfully. Generate the full dataset first with `python generate.py` if needed. Never put the token in the code or repository.
 
 On Windows, run the same commands in the activated PowerShell virtual environment, using `python -m pip install -r requirements-hub.txt` and `hf auth login` before uploading.
 
 ## Files
 
 - `generate.py` — folio generation, paired annotations, and optional Hub upload.
+- `scripts/upload_to_huggingface.py` — verify and upload an existing generated dataset without regenerating it.
 - `setup_macos.sh` — Mac setup with Indic shaping support.
 - `requirements.txt` — Python runtime packages.
 - `requirements-hub.txt` — optional Hub upload packages.

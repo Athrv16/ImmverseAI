@@ -108,6 +108,20 @@ After `hf auth login`, it uses the authenticated username to create or use the a
 
 On Windows, run the same commands in the activated PowerShell virtual environment, using `python -m pip install -r requirements-hub.txt` and `hf auth login` before uploading.
 
+## Hugging Face Dataset
+
+The generated synthetic manuscript dataset is publicly available on Hugging Face:
+
+https://huggingface.co/datasets/Athrv16/synthetic-manuscript-generator
+
+The dataset contains:
+
+- 300 manuscript images
+- 300 paired Markdown annotations
+- Devanagari, Modi, and Sharada scripts
+- 85 train / 10 validation / 5 test samples per script
+
+
 ## Files
 
 - `generate.py` — folio generation, paired annotations, and optional Hub upload.
